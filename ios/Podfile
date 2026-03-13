@@ -1,0 +1,39 @@
+platform :ios, '13.4'
+
+# CocoaPods analytics sends network stats synchronously affecting React Native build latency.
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+project 'TheCouncil',
+  'Debug' => :debug,
+  'Release' => :release
+
+def node_require(script)
+  # Resolve script with node to allow for hoisting
+  require Pod::Executable.execute_command('node', ['-e',
+    "require('path').dirname(require.resolve('#{script}/package.json'))",
+  ], true).strip + "/#{script}"
+end
+
+node_require('react-native/scripts/react_native_pods')
+node_require('react-native-community/cli-platform-ios/native_modules')
+
+prepare_react_native_project!
+
+target 'TheCouncil' do
+  config = use_native_modules!
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    # An absolute path to your application root.
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
+
+  post_install do |installer|
+    # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
+    react_native_post_install(
+      installer,
+      config[:reactNativePath],
+      :mac_catalyst_enabled => false
+    )
+  end
+end

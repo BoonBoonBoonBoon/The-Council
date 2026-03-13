@@ -1,0 +1,17 @@
+/**
+ * The Council - Root App Component
+ */
+
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import RootNavigator from './src/navigation/RootNavigator';
+
+const App = (): React.JSX.Element => {
+  return (
+    <NavigationContainer>
+      <RootNavigator />
+    </NavigationContainer>
+  );
+};
+
+export default App;

@@ -1,0 +1,61 @@
+# Dependency directories
+node_modules/
+
+# CocoaPods
+ios/Pods/
+
+# Android build
+android/build/
+android/app/build/
+
+# Expo
+.expo/
+dist/
+
+# React Native build output
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+
+# Metro Bundler cache
+.metro-health-check*
+.metro-bundler-cache*
+
+# Xcode
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+ios/build/
+ios/.xcode.env.local
+
+# Android
+*.keystore
+!debug.keystore
+
+# node
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Editor
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# macOS
+.DS_Store
+
+# Test coverage
+coverage/
